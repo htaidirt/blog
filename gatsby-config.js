@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Hassen's blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`
+      name: `Hassen Taidirt`,
+      summary: `who lives and works in Paris, France 🇫🇷 building useful things.`
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `A personal blog talking about development, Machine Learning and other stuff.`,
+    siteUrl: `https://htaidirt.com/`,
     social: {
-      twitter: `kylemathews`
+      twitter: `htaidirt`
     }
   },
   plugins: [
@@ -33,7 +33,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590
+              maxWidth: 590,
+              showCaptions: true
             }
           },
           {
@@ -42,14 +43,40 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`
             }
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              showLineNumbers: true,
+              // Customize the prompt used in shell output
+              // Values below are default
+              prompt: {
+                user: "root",
+                host: "localhost",
+                global: false,
+              },
+            },
+            plugins: [
+              'gatsby-remark-prismjs-copy-to-clipboard'
+            ]
+          },
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`
+          `gatsby-remark-smartypants`,
+          `gatsby-remark-reading-time`
         ]
       }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: "gatsby-plugin-page-progress",
+      options: {
+        // includePaths: ["/", { regex: "^/blog" }],
+        // excludePaths: ["/blog/beep-beep-lettuce"],
+        height: 3,
+        prependToBody: false,
+        color: `#a72a2a`
+      }
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -60,8 +87,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Hassen Taidirt personal blog`,
+        short_name: `htaidirt`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
@@ -75,7 +102,13 @@ module.exports = {
       options: {
         pathToConfigModule: `src/utils/typography`
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `htaidirt`
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
