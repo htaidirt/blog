@@ -1,12 +1,12 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
-import { Disqus } from 'gatsby-plugin-disqus'
+import { Disqus } from 'gatsby-plugin-disqus';
+import React from "react";
+import Bio from "../components/bio";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import { rhythm, scale } from "../utils/typography";
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -28,9 +28,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <article>
         <header>
           <h1
+            class="blog-post-title"
             style={{
               marginTop: rhythm(1),
-              marginBottom: 0,
+              marginBottom: rhythm(1),
             }}
           >
             {post.frontmatter.title}
@@ -42,9 +43,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               marginBottom: rhythm(1),
             }}
           >
-            {post.frontmatter.date}
+            {post.frontmatter.date}<span class="duration">⏳ ~{post.fields.readingTime.text}</span>
           </p>
-          <p>⏳ Expect ~{post.fields.readingTime.text}...</p>
         </header>
         <Img fluid={post.frontmatter.hero.childImageSharp.fluid} />
         <div class="hero-spacing"></div>

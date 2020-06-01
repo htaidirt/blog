@@ -1,3 +1,7 @@
+.hero-spacing {
+    height: 100px;
+}
+
 .gatsby-resp-image-figcaption {
     color: #b0b0b0;
     font-size: 0.8em;
@@ -6,6 +10,6 @@
     text-align: center;
 }
 
-.hero-spacing {
-    height: 100px;
+.duration {
+    float: right;
 }

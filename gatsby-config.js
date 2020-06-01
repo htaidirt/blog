@@ -72,9 +72,9 @@ module.exports = {
       options: {
         // includePaths: ["/", { regex: "^/blog" }],
         // excludePaths: ["/blog/beep-beep-lettuce"],
-        height: 3,
+        height: 5,
         prependToBody: false,
-        color: `#a72a2a`
+        color: `#ff7e14`
       }
     },
     {
